@@ -11,3 +11,6 @@ Then visit [http://localhost:8080](http://localhost:8080) with your web browser.
 
 ## Note
 Currently does not work in Chrome 40 with Polymer 0.5.5 and CK Editor 4.4.7.
+
+## Credits
+A renamed and tidied version of the [votingsystem-texteditor](https://github.com/votingsystem/votingsystem-texteditor) component
