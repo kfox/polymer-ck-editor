@@ -1,0 +1,46 @@
+<link rel="import" href="ck-editor-import.html">
+
+<polymer-element name="ck-editor" attributes="dataJSON type">
+  <template>
+    <div id="container"></div>
+  </template>
+
+  <script>
+    var editor = null;
+    var config = {};
+
+    Polymer('ck-editor', {
+      isEditorLoaded: false,
+      data: '',
+      ready: function() {
+        console.log('ck-editor: element ready');
+
+        if (this.dataJSON != null && "" != this.dataJSON.trim()) {
+          this.data = JSON.parse(this.dataJSON).content;
+        }
+
+        this.editor =  CKEDITOR.appendTo(this.$.container, this.config);
+
+        CKEDITOR.on('instanceReady', function(e) {
+          this.isEditorLoaded = true;
+          if (this.data != null) {
+            this.editor.insertHtml(this.data);
+            this.data = null;
+          }
+        }.bind(this));
+      },
+      dataJSONChanged: function() {
+        if (this.dataJSON != null && "" != this.dataJSON.trim()) {
+          setData(JSON.parse(this.dataJSON).content);
+        }
+      },
+      getData: function() {
+        return this.editor.getData().trim();
+      },
+      setData: function(dataToSet) {
+        if (!this.isEditorLoaded) { this.data = dataToSet; }
+        else this.editor.insertHtml(dataToSet);
+      }
+    });
+  </script>
+</polymer-element>

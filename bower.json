@@ -1,0 +1,8 @@
+{
+  "name": "polymer-ck-editor",
+  "version": "0.0.1",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.5",
+    "ckeditor": "~4.4.7"
+  }
+}

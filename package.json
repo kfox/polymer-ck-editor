@@ -1,0 +1,12 @@
+{
+  "name": "ck-editor",
+  "version": "0.0.1",
+  "description": "CK Editor as a Polymer element",
+  "main": "index.html",
+  "dependencies": {
+    "http-server": "^0.7.5"
+  },
+  "scripts": {
+    "start": "node ./node_modules/.bin/http-server --cors"
+  }
+}
